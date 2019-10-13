@@ -25,7 +25,7 @@ Vagrant.configure('2') do |config|
     app.vm.network 'private_network', ip: '192.168.33.12'
   end
   config.vm.provision 'ansible' do |ansible|
-    ansible.playbook = 'playbooks/main.yml'
+    ansible.playbook = 'playbook.yml'
     ansible.become = true
   end
 end
