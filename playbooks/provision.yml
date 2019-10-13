@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: install ntp
+    package:
+      name: ntp
+      state: present
+
+  - name: enable ntpd
+    service:
+      name: ntpd
+      state: started
