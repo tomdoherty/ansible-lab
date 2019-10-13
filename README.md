@@ -10,6 +10,7 @@ messing about with ansible
 
     cd roles/ntp
     molecule test
+    cd ../..
 
     vagrant up
     ansible-playbook playbook.yml
