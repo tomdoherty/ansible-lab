@@ -34,9 +34,20 @@
 
 
 - name: virt-install commands
-  debug:
-    msg: "virt-install --name {{ vm_item }} --ram 4096 --disk size=10 --quiet --noautoconsole --autostart --virt-type kvm --wait=-1 --vcpus 1 --os-type linux --os-variant rhel7.7 --network bridge=bridge0 --graphics none --initrd-inject /etc/kickstarts/{{ vm_item }}.cfg --location 'http://mirror.mhd.uk.as44574.net/mirror.centos.org/7.7.1908/os/x86_64/' --extra-args 'console=ttyS0,115200n8 ks=file:/{{ vm_item }}.ks ksdevice=eth0 ip={{ hostvars[vm_item]['ifcfg_ifcfg']['eth0']['ipaddr'] }} nameserver={{ hostvars[vm_item]['ifcfg_ifcfg']['eth0']['dns1'] }} netmask={{ hostvars[vm_item]['ifcfg_ifcfg']['eth0']['mask'] }} gateway={{ hostvars[vm_item]['routes_default'] }}"
-  with_items:
+  template:
+    src: vminstall.j2
+    dest: /usr/local/bin/vminstall
+    mode: 0755
+  register: vm_config
+  vars:
+    vm_items:
+    - k3s-master01
+    - k3s-node01
+    - k3s-node02
     - k3s-node03
   loop_control:
-    loop_var: vm_item
+    loop_var: vm_items
+
+- name: Start VM
+  command: vminstall
+  when: vm_config.changed
