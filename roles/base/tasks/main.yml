@@ -17,6 +17,15 @@
     state: present
 
 
+- name: Disable IPv6 in grub
+  lineinfile:
+    state: present
+    dest: /etc/default/grub
+    backrefs: yes
+    regexp: '^(GRUB_CMDLINE_LINUX=(?!.*ipv6.disable=1)\"[^\"]+)(\".*)'
+    line: '\1 ipv6.disable=1\2'
+
+
 - name: Disable SELinux
   selinux:
     state: disabled
@@ -28,3 +37,12 @@
     line: 'allow bridge0'
     create: yes
   when: routes_default is defined
+
+
+- name: wheel NOPASSWD
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
