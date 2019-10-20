@@ -21,6 +21,7 @@ ifcfg_ifcfg:
 #     type: type (e.g. Bridge/Ethernet)
 #     onboot: enable on boot (yes/no)
 #     bootproto: (e.g. dhcp/none/static)
+#     bridge: what interface is bridged for (e.g. bridge0)
 #     ipaddr: IP address (e.g. 192.168.0.100)
 #     mask: netmask (e.g. 255.255.255.0)
 #     network: network address (e.g. 192.168.0.0)

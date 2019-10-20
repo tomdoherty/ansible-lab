@@ -12,6 +12,9 @@ ONBOOT="{{ ifcfg_item.value.onboot }}"
 {% if ifcfg_item.value.bootproto is defined %}
 BOOTPROTO="{{ ifcfg_item.value.bootproto }}"
 {% endif %}
+{% if ifcfg_item.value.bridge is defined %}
+BRIDGE="{{ ifcfg_item.value.bridge }}"
+{% endif %}
 {% if ifcfg_item.value.ipaddr is defined %}
 IPADDR="{{ ifcfg_item.value.ipaddr }}"
 {% endif %}
