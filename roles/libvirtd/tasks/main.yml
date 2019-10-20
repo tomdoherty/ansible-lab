@@ -1,0 +1,17 @@
+---
+# tasks file for libvirtd
+
+- name: Install packages
+  yum:
+    state: present
+    name:
+      - libvirt
+      - qemu-kvm
+      - virt-install
+
+
+- name: Allow KVM to use bridge0
+  lineinfile:
+    path: /etc/qemu-kvm/bridge.conf
+    line: 'allow bridge0'
+    create: yes
