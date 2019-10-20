@@ -1,0 +1,77 @@
+# {{ ansible_managed }}
+
+{% if ifcfg_item.value.device is defined %}
+DEVICE="{{ ifcfg_item.value.device }}"
+{% endif %}
+{% if ifcfg_item.value.type is defined %}
+TYPE="{{ ifcfg_item.value.type }}"
+{% endif %}
+{% if ifcfg_item.value.onboot is defined %}
+ONBOOT="{{ ifcfg_item.value.onboot }}"
+{% endif %}
+{% if ifcfg_item.value.bootproto is defined %}
+BOOTPROTO="{{ ifcfg_item.value.bootproto }}"
+{% endif %}
+{% if ifcfg_item.value.ipaddr is defined %}
+IPADDR="{{ ifcfg_item.value.ipaddr }}"
+{% endif %}
+{% if ifcfg_item.value.mask is defined %}
+NETMASK="{{ ifcfg_item.value.mask }}"
+{% endif %}
+{% if ifcfg_item.value.network is defined %}
+NETWORK="{{ ifcfg_item.value.network }}"
+{% endif %}
+{% if ifcfg_item.value.bcast is defined %}
+BROADCAST="{{ ifcfg_item.value.bcast }}"
+{% endif %}
+{% if ifcfg_item.value.onparent is defined %}
+ONPARENT="{{ ifcfg_item.value.onparent }}"
+{% endif %}
+{% if ifcfg_item.value.hwaddr is defined %}
+HWADDR="{{ ifcfg_item.value.hwaddr }}"
+{% endif %}
+{% if ifcfg_item.value.metric is defined %}
+METRIC="{{ ifcfg_item.value.metric }}"
+{% endif %}
+{% if ifcfg_item.value.mtu is defined %}
+MTU="{{ ifcfg_item.value.mtu }}"
+{% endif %}
+{% if ifcfg_item.value.ethtool_opts is defined %}
+ETHTOOL_OPTS="{{ ifcfg_item.value.ethtool_opts }}"
+{% endif %}
+{% if ifcfg_item.value.bonding_opts is defined %}
+BONDING_OPTS="{{ ifcfg_item.value.bonding_opts }}"
+{% endif %}
+{% if ifcfg_item.value.master is defined %}
+MASTER="{{ ifcfg_item.value.master }}"
+{% endif %}
+{% if ifcfg_item.value.slave is defined %}
+SLAVE="{{ ifcfg_item.value.slave }}"
+{% endif %}
+{% if ifcfg_item.value.vlan is defined %}
+VLAN="{{ ifcfg_item.value.vlan }}"
+{% endif %}
+{% if ifcfg_item.value.gateway is defined %}
+GATEWAY="{{ ifcfg_item.value.gateway }}"
+{% endif %}
+{% if ifcfg_item.value.nm_controlled is defined %}
+NM_CONTROLLED="{{ ifcfg_item.value.nm_controlled }}"
+{% endif %}
+{% if ifcfg_item.value.delay is defined %}
+DELAY="{{ ifcfg_item.value.delay }}"
+{% endif %}
+{% if ifcfg_item.value.userctl is defined %}
+USERCTL="{{ ifcfg_item.value.userctl }}"
+{% endif %}
+{% if ifcfg_item.value.peerdns is defined %}
+PEERDNS="{{ ifcfg_item.value.peerdns }}"
+{% endif %}
+{% if ifcfg_item.value.dns1 is defined %}
+DNS1="{{ ifcfg_item.value.dns1 }}"
+{% endif %}
+{% if ifcfg_item.value.dns2 is defined %}
+DNS2="{{ ifcfg_item.value.dns2 }}"
+{% endif %}
+{% if ifcfg_item.value.srcaddr is defined %}
+SRCADDR="{{ ifcfg_item.value.srcaddr }}"
+{% endif %}

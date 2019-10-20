@@ -1,0 +1,24 @@
+---
+# tasks file for ifcfg
+
+- name: Install packages
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - bridge-utils
+
+
+- name: Ensure directory is there
+  file:
+    path: /etc/sysconfig/network-scripts/
+    state: directory
+
+
+- name: Generating ifcfg files
+  template:
+    src: ifcfg.j2
+    dest: "/etc/sysconfig/network-scripts/ifcfg-{{ ifcfg_item.key }}"
+  with_dict: "{{ ifcfg_ifcfg }}"
+  loop_control:
+    loop_var: ifcfg_item
