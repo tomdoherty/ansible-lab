@@ -1,11 +1,13 @@
 ---
-- name: install ntp
+- name: Install ntp
   package:
     name: ntp
     state: present
 
-- name: enable ntpd
-  service:
-    name: ntpd
-    state: started
+- name: Start/Enable ntpd
+  systemd:
+    name: libvirtd
     enabled: yes
+    state: started
+  tags:
+    - molecule-notest

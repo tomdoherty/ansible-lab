@@ -10,3 +10,11 @@
       - ifcfg
       - ntp
       - routes
+
+- hosts: server
+  become: yes
+  tasks:
+  - include_role:
+      name: "{{ item }}"
+    with_items:
+      - libvirtd
