@@ -5,10 +5,15 @@
   yum:
     state: present
     name:
+      - genisoimage
       - git
+      - mkisofs
+      - perl
+      - syslinux
       - qemu-kvm
       - vim
       - virt-install
+      - wget
 
 
 - name: Blacklist IPv6 LKM
