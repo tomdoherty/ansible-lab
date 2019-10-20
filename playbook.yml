@@ -6,6 +6,7 @@
       name: "{{ item }}"
     with_items:
       - base
+      - disable-ipv6
       - hosts
       - ifcfg
       - ntp

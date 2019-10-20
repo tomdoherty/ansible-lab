@@ -8,11 +8,6 @@ messing about with ansible
     . virtualenv/bin/activate
     pip install -r requirements.txt
 
-    cd roles/ntp
-    molecule test
-    cd ../..
+    virt-install.sh
 
-    vagrant up
     ansible-playbook playbook.yml
-
-    vagrant destroy -f
