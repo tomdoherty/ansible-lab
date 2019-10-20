@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+{% for host in hostvars %}
+{% if hostvars[host].get('ifcfg_ifcfg') %}
+{% for interface in hostvars[host]['ifcfg_ifcfg'] %}
+{% if hostvars[host]['ifcfg_ifcfg'][interface].get('ipaddr') %}
+{{ hostvars[host]['ifcfg_ifcfg'][interface]['ipaddr'] }} {{ host }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
