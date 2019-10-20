@@ -1,0 +1,9 @@
+---
+# tasks file for base
+
+- name: Install packages
+  yum:
+    state: present
+    name:
+      - git
+      - virt-install

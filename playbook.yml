@@ -1,5 +1,11 @@
 ---
 - hosts: all
+  become: yes
   tasks:
   - include_role:
-      name: ntp
+      name: "{{ item }}"
+    with_items:
+      - base
+      - ifcfg
+      - routes
+      - ntp
