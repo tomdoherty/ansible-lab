@@ -1,0 +1,12 @@
+ifcfg_ifcfg:
+  eth0:
+    device: 'eth0'
+    type: 'Ethernet'
+    ipaddr: '192.168.0.20'
+    mask: '255.255.255.0'
+    dns1: '8.8.8.8'
+    dns2: '8.8.4.4'
+    onboot: 'yes'
+
+routes_default: 192.168.0.1
+routes_routes: {}

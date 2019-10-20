@@ -21,3 +21,5 @@
     src: routes.j2
     dest: "/etc/sysconfig/network-scripts/routes-{{ routes_item.key }}"
   with_dict: "{{ routes_routes }}"
+  loop_control:
+    loop_var: routes_item
