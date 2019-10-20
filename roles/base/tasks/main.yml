@@ -6,4 +6,6 @@
     state: present
     name:
       - git
+      - qemu-kvm
+      - vim
       - virt-install
