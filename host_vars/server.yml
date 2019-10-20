@@ -1,12 +1,18 @@
 ifcfg_ifcfg:
-  enp3s0:
-    device: 'enp3s0'
-    type: 'Ethernet'
+  bridge0:
+    device: 'bridge0'
+    type: 'bridge'
     ipaddr: '192.168.0.15'
     mask: '255.255.255.0'
     dns1: '8.8.8.8'
     dns2: '8.8.4.4'
     onboot: 'yes'
+  enp3s0:
+    device: 'enp3s0'
+    type: 'Ethernet'
+    hwaddr: 'c8:d3:ff:43:07:b6'
+    onboot: 'yes'
+    bridge: 'bridge0'
 
 routes_default: 192.168.0.1
 routes_routes: {}
