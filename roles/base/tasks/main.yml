@@ -9,3 +9,22 @@
       - qemu-kvm
       - vim
       - virt-install
+
+
+- name: Blacklist IPv6 LKM
+  kernel_blacklist:
+    name: ipv6
+    state: present
+
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+
+- name: Allow KVM to use bridge0
+  lineinfile:
+    path: /etc/qemu-kvm/bridge.conf
+    line: 'allow bridge0'
+    create: yes
+  when: routes_default is defined
