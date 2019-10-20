@@ -18,3 +18,27 @@
       name: "{{ item }}"
     with_items:
       - libvirtd
+
+- hosts: k3s_host
+  become: yes
+  tasks:
+  - include_role:
+      name: "{{ item }}"
+    with_items:
+      - k3s-all
+
+- hosts: k3s_master
+  become: yes
+  tasks:
+  - include_role:
+      name: "{{ item }}"
+    with_items:
+      - k3s-master
+
+- hosts: k3s_node
+  become: yes
+  tasks:
+  - include_role:
+      name: "{{ item }}"
+    with_items:
+      - k3s-nodes

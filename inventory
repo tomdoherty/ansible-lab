@@ -1,5 +1,13 @@
 server	ansible_host=192.168.0.15
+
+[k3s_master]
 k3s-master01 ansible_host=192.168.0.20
+
+[k3s_node]
 k3s-node01 ansible_host=192.168.0.21
 k3s-node02 ansible_host=192.168.0.22
 k3s-node03 ansible_host=192.168.0.23
+
+[k3s_host:children]
+k3s_master
+k3s_node
