@@ -1,0 +1,6 @@
+---
+# vars file for k3s-all
+
+k3s_version: v0.9.1
+k3s_secret: "thisispainful"
+k3s_masterip: 192.168.0.20
