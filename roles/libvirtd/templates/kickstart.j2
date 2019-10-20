@@ -24,3 +24,7 @@ user --name=tom --groups=wheel --iscrypted --password=$6$gAm2GgBXX6gIVIjt$QLAaWI
 %packages
 @core
 %end
+
+%post
+echo 'tom ALL=(ALL) NOPASSWD: ALL' >/mnt/sysimage/etc/sudoers.d/tom
+%end

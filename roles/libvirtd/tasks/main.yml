@@ -36,7 +36,7 @@
 - name: virt-install commands
   template:
     src: vminstall.j2
-    dest: /usr/local/bin/vminstall
+    dest: "/usr/local/bin/vminstall"
     mode: 0755
   register: vm_config
   vars:
@@ -49,5 +49,5 @@
     loop_var: vm_items
 
 - name: Start VM
-  command: vminstall
+  shell: /usr/local/bin/vminstall
   when: vm_config.changed
