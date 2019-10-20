@@ -26,5 +26,10 @@ user --name=tom --groups=wheel --iscrypted --password=$6$gAm2GgBXX6gIVIjt$QLAaWI
 %end
 
 %post
-echo 'tom ALL=(ALL) NOPASSWD: ALL' >/mnt/sysimage/etc/sudoers.d/tom
+echo 'tom ALL=(ALL) NOPASSWD: ALL' >/etc/sudoers.d/tom
+
+install -o tom -d -m 0600 ~tom/.ssh
+echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9FNpoDiJLd+if9noTjimmiCfTi0BUa3uQFnUOf5PVLx+gT0+61j7+EOvvqdVN8pUI/+eNMJPqDvrPsKqe63QJkDboltJaY9m39KAPAVw/L8myLDsxcXprmLOtK8MlHc1FvGwsUeiZAZaEdt/KfOd/zkU/qd5xpQVk9ERO/H+o3T5ReuEV63vlSnF8mXvh5gFzJVLiTgMgGhYizg24Z894nalGx+rvPz1XWVhEqlZsQsdyXQsnUdoboSyVw1tcN3y87Tws8k72ZRMd5Yc9zs+5XN3Yj4DOtJzac0wvcFAVIetHMz2BWUbT5Ei9BDAjGerI+nr47p5CDetyqy82Ctwz tom@Thomass-MacBook-Pro.local' >~tom/.ssh/authorized_keys
+chown tom ~tom/.ssh/authorized_keys
+chmod 0600 ~tom/.ssh/authorized_keys
 %end
